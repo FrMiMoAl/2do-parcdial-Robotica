@@ -1,3 +1,0 @@
-[console_scripts]
-q_learning_agent = ejercicio3_nav_agent.q_learning_agent:main
-simple_agent = ejercicio3_nav_agent.simple_agent:main

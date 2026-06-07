@@ -1,0 +1,13 @@
+# Carpetas de ROS
+build/
+devel/
+logs/
+.catkin_workspace
+.ros/
+
+# Archivos de sistema/editor
+.vscode/
+.DS_Store
+*~
+*.pyc
+
