@@ -1,1 +1,0 @@
-/home/franco/stage_ws/src/stage_ros2/launch/rviz_ns.launch.py
