@@ -12,12 +12,11 @@
 #include <geometry_msgs/msg/vector3.h>
 #include <geometry_msgs/msg/twist.h>
 
-// =====================================================
+
 // CONFIGURACIÓN DE TU ENCODER
 // =====================================================
 #define ENCODER_RESOLUTION 330.0
 
-// =====================================================
 // PINES SEGUN TU ESQUEMATICO
 // =====================================================
 #define PWMA_PIN 25
@@ -41,7 +40,7 @@
 
 #define LED_PIN 2
 
-// =====================================================
+
 // CONFIGURACION PWM Y RANGOS
 // =====================================================
 #define PWM_FREQ 20000
@@ -56,23 +55,23 @@ const int PWM_MIN_MOV = 80;
 const int PWM_MAX_MOV = 255;
 const int PWM_DEADBAND = 25;
 
-// =====================================================
+
 // PARÁMETROS SMOOTH MODE
 // =====================================================
 const float MAX_RPM_CHANGE_PER_CYCLE = 3.0;
 const float input_filter_alpha = 0.6;
 
-// =====================================================
+
 // FILTRO DE VELOCIDAD
 // =====================================================
 const float velocity_filter_alpha = 0.6;
 
-// =====================================================
+
 // COMPENSACIÓN DE ASIMETRÍA MOTOR
 // =====================================================
 const float motor_b_balance_factor = 1.02;  
 
-// =====================================================
+
 // PARÁMETROS IMU
 // =====================================================
 float gyro_filter_alpha = 0.8;
@@ -81,17 +80,17 @@ const unsigned long GYRO_RECAL_INTERVAL = 10000;
 float gyro_recal_old_weight = 0.9;
 float gyro_recal_new_weight = 0.1;
 
-// =====================================================
+
 // CONSTANTES MECÁNICAS (RANGO AMPLIADO A 6.5 CM)
 // =====================================================
 const float WHEEL_DIAMETER_CM = 4.0;      
-const float POSITION_TOLERANCE_CM = 7;  // <- Ampliado para absorber inercia de frenado
+const float POSITION_TOLERANCE_CM = 7;  
 
-// Conversión cinemática: Centímetros a Ticks absolutos
+
 const float CM_TO_TICKS = (ENCODER_RESOLUTION / (3.14159265 * WHEEL_DIAMETER_CM));
 const float TICK_TOLERANCE = POSITION_TOLERANCE_CM * CM_TO_TICKS;
 
-// =====================================================
+
 // CLASE PID
 // =====================================================
 class PIDController {
@@ -142,7 +141,7 @@ class PIDController {
 PIDController pid_motor_a(0.6, 0.10, 0.15, 0.02); 
 PIDController pid_motor_b(0.6, 0.10, 0.15, 0.02); 
 
-// =====================================================
+
 // MICRO-ROS OBJETOS
 // =====================================================
 rcl_node_t node;
@@ -162,7 +161,7 @@ std_msgs__msg__Float32 rpm_right_msg;
 rcl_publisher_t imu_yaw_pub;
 std_msgs__msg__Float32 imu_yaw_msg;
 
-// =====================================================
+
 // VARIABLES DE ESTADO Y CONTROL
 // =====================================================
 int motor_a_cmd = 0;
@@ -202,7 +201,7 @@ float max_velocity_rpm = 80.0;
 
 bool emergency_stop = true; 
 
-// =====================================================
+
 // RUTINAS DE INTERRUPCIÓN (ISRs)
 // =====================================================
 void IRAM_ATTR ISR_encoder_a() {
@@ -215,7 +214,7 @@ void IRAM_ATTR ISR_encoder_b() {
   absolute_ticks_b++;
 }
 
-// =====================================================
+
 // PROTOTIPOS
 // =====================================================
 void motor_a_write(int pwm);
@@ -230,7 +229,7 @@ void control_loop_pid();
 float constrain_change(float current, float previous, float max_change);
 float apply_lowpass_filter(float current, float previous, float alpha);
 
-// =====================================================
+
 // ERROR
 // =====================================================
 #define RCCHECK(fn) { rcl_ret_t temp_rc = fn; if ((temp_rc != RCL_RET_OK)) error_loop(); }
@@ -254,7 +253,7 @@ float constrain_change(float current, float previous, float max_change) {
   return current;
 }
 
-// =====================================================
+
 // LÓGICA /cmd_vel - CON REINICIO INTEGRAL DE ENCODERS Y MPU
 // =====================================================
 void cmd_vel_callback(const void * msgin) {
@@ -283,12 +282,12 @@ void cmd_vel_callback(const void * msgin) {
   _prev_linear = linear;
   _prev_angular = angular;
 
-  // 1. REINICIAR RUMBO MPU: Establecemos el cero relativo del giroscopio
+
   current_yaw = 0.0;
   target_yaw = 0.0;
   is_going_straight = false;
 
-  // 2. REINICIAR ODOMETRÍA: Ponemos a 0 las ruedas para arrancar desde cero el test
+
   noInterrupts();
   absolute_ticks_a = 0;
   absolute_ticks_b = 0;
@@ -298,7 +297,7 @@ void cmd_vel_callback(const void * msgin) {
   Serial.println("🔄 Lazo e IMU reseteados. Iniciando nueva prueba de posición...");
 }
 
-// =====================================================
+
 // LAZO PID PRINCIPAL CON APAGADO ELECTRÓNICO EN META
 // =====================================================
 void control_loop_pid() {
@@ -328,14 +327,14 @@ void control_loop_pid() {
 
   float base_rpm = 0.0;
 
-  // -----------------------------------------------------------------
+  
   // CONDICIÓN DE DETENCIÓN DE MOTORES AL LLEGAR A LA META REAL 
   // -----------------------------------------------------------------
   if (fabs(position_error) > TICK_TOLERANCE) {
     base_rpm = position_error * Kp_position;
     base_rpm = constrain(base_rpm, -max_velocity_rpm, max_velocity_rpm);
   } else {
-    // ¡META ALCANZADA!: Forzamos apagado total instantáneo y reseteamos el acumulado de corriente
+
     target_rpm_a = 0.0;
     target_rpm_b = 0.0;
     pid_motor_a.reset();
@@ -414,7 +413,7 @@ void control_loop_pid() {
   RCSOFTCHECK(rcl_publish(&imu_yaw_pub, &imu_yaw_msg, NULL));
 }
 
-// =====================================================
+
 // ESCRITURA FÍSICA EN PUENTES H
 // =====================================================
 void motor_a_write(int pwm) {
@@ -431,7 +430,7 @@ void motor_b_write(int pwm) {
   else { digitalWrite(BIN1_PIN, LOW); digitalWrite(BIN2_PIN, LOW); ledcWrite(PWM_CHANNEL_B, 0); }
 }
 
-// =====================================================
+
 // MANEJO MPU6050
 // =====================================================
 void mpu6050_init_improved() {
