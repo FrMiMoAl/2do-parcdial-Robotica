@@ -1,4 +1,4 @@
-# Ejercicio 1 - Robot Diferencial Físico con micro-ROS y ROS 2
+# 🤖 Ejercicio 1 - Robot Diferencial Físico con micro-ROS y ROS 2
 
 ## Integrantes
 
