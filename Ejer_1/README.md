@@ -1,4 +1,4 @@
-# 🤖 Ejercicio 1 - Robot Diferencial Físico con micro-ROS y ROS 2
+# Ejercicio 1 - Robot Diferencial Físico con micro-ROS y ROS 2
 
 ## Integrantes
 
@@ -127,7 +127,7 @@ colcon build --symlink-install
 
 # Ejecución del Sistema
 
-⚠️ En cada terminal ejecutar previamente:
+En cada terminal ejecutar previamente:
 
 ```bash
 source /opt/ros/jazzy/setup.bash
