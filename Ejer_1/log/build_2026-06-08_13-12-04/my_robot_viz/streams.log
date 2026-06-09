@@ -1,0 +1,22 @@
+[0.729s] Invoking command in '/home/franco/Desktop/Robotica/2dopar/RvizRobot/my_robot_viz': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/franco/Desktop/Robotica/2dopar/RvizRobot/build/my_robot_viz/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/my_robot_viz/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/my_robot_viz build --build-base /home/franco/Desktop/Robotica/2dopar/RvizRobot/build/my_robot_viz/build install --record /home/franco/Desktop/Robotica/2dopar/RvizRobot/build/my_robot_viz/install.log --single-version-externally-managed install_data
+[0.944s] running egg_info
+[0.962s] writing ../build/my_robot_viz/my_robot_viz.egg-info/PKG-INFO
+[0.962s] writing dependency_links to ../build/my_robot_viz/my_robot_viz.egg-info/dependency_links.txt
+[0.962s] writing entry points to ../build/my_robot_viz/my_robot_viz.egg-info/entry_points.txt
+[0.962s] writing requirements to ../build/my_robot_viz/my_robot_viz.egg-info/requires.txt
+[0.962s] writing top-level names to ../build/my_robot_viz/my_robot_viz.egg-info/top_level.txt
+[0.998s] reading manifest file '../build/my_robot_viz/my_robot_viz.egg-info/SOURCES.txt'
+[0.998s] writing manifest file '../build/my_robot_viz/my_robot_viz.egg-info/SOURCES.txt'
+[0.998s] running build
+[0.998s] running build_py
+[0.998s] running install
+[1.003s] running install_lib
+[1.022s] running install_data
+[1.022s] running install_egg_info
+[1.040s] removing '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/my_robot_viz/lib/python3.12/site-packages/my_robot_viz-0.0.0-py3.12.egg-info' (and everything under it)
+[1.040s] Copying ../build/my_robot_viz/my_robot_viz.egg-info to /home/franco/Desktop/Robotica/2dopar/RvizRobot/install/my_robot_viz/lib/python3.12/site-packages/my_robot_viz-0.0.0-py3.12.egg-info
+[1.041s] running install_scripts
+[1.162s] Installing imu_bridge_node script to /home/franco/Desktop/Robotica/2dopar/RvizRobot/install/my_robot_viz/lib/my_robot_viz
+[1.162s] Installing odom_node script to /home/franco/Desktop/Robotica/2dopar/RvizRobot/install/my_robot_viz/lib/my_robot_viz
+[1.162s] writing list of installed files to '/home/franco/Desktop/Robotica/2dopar/RvizRobot/build/my_robot_viz/install.log'
+[1.181s] Invoked command in '/home/franco/Desktop/Robotica/2dopar/RvizRobot/my_robot_viz' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/franco/Desktop/Robotica/2dopar/RvizRobot/build/my_robot_viz/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/my_robot_viz/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/my_robot_viz build --build-base /home/franco/Desktop/Robotica/2dopar/RvizRobot/build/my_robot_viz/build install --record /home/franco/Desktop/Robotica/2dopar/RvizRobot/build/my_robot_viz/install.log --single-version-externally-managed install_data

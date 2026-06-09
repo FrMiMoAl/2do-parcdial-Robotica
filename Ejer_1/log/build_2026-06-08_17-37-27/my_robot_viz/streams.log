@@ -1,0 +1,39 @@
+[1.739s] Invoking command in '/home/samuel/Roboticaclase/RvizRobot/build/my_robot_viz': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/samuel/Roboticaclase/RvizRobot/build/my_robot_viz/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/samuel/Roboticaclase/RvizRobot/build/my_robot_viz/build
+[2.317s] running develop
+[2.762s] Removing /home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/lib/python3.12/site-packages/my-robot-viz.egg-link (link to .)
+[2.821s] Invoked command in '/home/samuel/Roboticaclase/RvizRobot/build/my_robot_viz' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/samuel/Roboticaclase/RvizRobot/build/my_robot_viz/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/samuel/Roboticaclase/RvizRobot/build/my_robot_viz/build
+[2.832s] Invoking command in '/home/samuel/Roboticaclase/RvizRobot/my_robot_viz': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/samuel/Roboticaclase/RvizRobot/build/my_robot_viz/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/my_robot_viz build --build-base /home/samuel/Roboticaclase/RvizRobot/build/my_robot_viz/build install --record /home/samuel/Roboticaclase/RvizRobot/build/my_robot_viz/install.log --single-version-externally-managed install_data --force
+[3.319s] running egg_info
+[3.358s] writing ../build/my_robot_viz/my_robot_viz.egg-info/PKG-INFO
+[3.358s] writing dependency_links to ../build/my_robot_viz/my_robot_viz.egg-info/dependency_links.txt
+[3.358s] writing entry points to ../build/my_robot_viz/my_robot_viz.egg-info/entry_points.txt
+[3.359s] writing requirements to ../build/my_robot_viz/my_robot_viz.egg-info/requires.txt
+[3.359s] writing top-level names to ../build/my_robot_viz/my_robot_viz.egg-info/top_level.txt
+[3.437s] reading manifest file '../build/my_robot_viz/my_robot_viz.egg-info/SOURCES.txt'
+[3.439s] writing manifest file '../build/my_robot_viz/my_robot_viz.egg-info/SOURCES.txt'
+[3.439s] running build
+[3.439s] running build_py
+[3.440s] copying my_robot_viz/odom_node.py -> /home/samuel/Roboticaclase/RvizRobot/build/my_robot_viz/build/lib/my_robot_viz
+[3.440s] running install
+[3.449s] running install_lib
+[3.492s] copying /home/samuel/Roboticaclase/RvizRobot/build/my_robot_viz/build/lib/my_robot_viz/odom_node.py -> /home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/lib/python3.12/site-packages/my_robot_viz
+[3.493s] byte-compiling /home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/lib/python3.12/site-packages/my_robot_viz/odom_node.py to odom_node.cpython-312.pyc
+[3.496s] running install_data
+[3.496s] copying resource/my_robot_viz -> /home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/share/ament_index/resource_index/packages
+[3.496s] copying package.xml -> /home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/share/my_robot_viz
+[3.496s] copying launch/visualize.launch.py -> /home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/share/my_robot_viz/launch
+[3.496s] copying urdf/robot.urdf.xml -> /home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/share/my_robot_viz/urdf
+[3.497s] copying urdf/autitorobotica.urdf -> /home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/share/my_robot_viz/urdf
+[3.497s] copying rviz/robot.rviz -> /home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/share/my_robot_viz/rviz
+[3.497s] copying meshes/base_link.STL -> /home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/share/my_robot_viz/meshes
+[3.501s] copying meshes/A.STL -> /home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/share/my_robot_viz/meshes
+[3.501s] copying meshes/B.STL -> /home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/share/my_robot_viz/meshes
+[3.502s] copying config/joint_names_autitorobotica.yaml -> /home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/share/my_robot_viz/config
+[3.502s] running install_egg_info
+[3.548s] removing '/home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/lib/python3.12/site-packages/my_robot_viz-0.0.0-py3.12.egg-info' (and everything under it)
+[3.549s] Copying ../build/my_robot_viz/my_robot_viz.egg-info to /home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/lib/python3.12/site-packages/my_robot_viz-0.0.0-py3.12.egg-info
+[3.550s] running install_scripts
+[3.820s] Installing imu_bridge_node script to /home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/lib/my_robot_viz
+[3.820s] Installing odom_node script to /home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/lib/my_robot_viz
+[3.820s] writing list of installed files to '/home/samuel/Roboticaclase/RvizRobot/build/my_robot_viz/install.log'
+[3.885s] Invoked command in '/home/samuel/Roboticaclase/RvizRobot/my_robot_viz' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/samuel/Roboticaclase/RvizRobot/build/my_robot_viz/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/my_robot_viz build --build-base /home/samuel/Roboticaclase/RvizRobot/build/my_robot_viz/build install --record /home/samuel/Roboticaclase/RvizRobot/build/my_robot_viz/install.log --single-version-externally-managed install_data --force

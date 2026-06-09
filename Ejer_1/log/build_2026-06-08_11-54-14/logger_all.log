@@ -1,0 +1,365 @@
+[0.115s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--packages-up-to', 'micro_ros_agent', '--cmake-args', '-DUAGENT_BUILD_EXECUTABLE=OFF', '-DUAGENT_P2P_PROFILE=OFF', '--no-warn-unused-cli']
+[0.115s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=16, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=['micro_ros_agent'], packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=['-DUAGENT_BUILD_EXECUTABLE=OFF', '-DUAGENT_P2P_PROFILE=OFF', '--no-warn-unused-cli'], cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x75e01a47bb30>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x75e01a5dbf80>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x75e01a5dbf80>>, mixin_verb=('build',))
+[0.151s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.151s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.151s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.151s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.151s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.151s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.151s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/franco/Desktop/Robotica/2dopar/RvizRobot'
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.151s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.174s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.174s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.174s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.174s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.174s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.175s] Level 1:colcon.colcon_core.package_identification:_identify(URDF) by extensions ['ignore', 'ignore_ament_install']
+[0.175s] Level 1:colcon.colcon_core.package_identification:_identify(URDF) by extension 'ignore'
+[0.175s] Level 1:colcon.colcon_core.package_identification:_identify(URDF) by extension 'ignore_ament_install'
+[0.175s] Level 1:colcon.colcon_core.package_identification:_identify(URDF) by extensions ['colcon_pkg']
+[0.175s] Level 1:colcon.colcon_core.package_identification:_identify(URDF) by extension 'colcon_pkg'
+[0.175s] Level 1:colcon.colcon_core.package_identification:_identify(URDF) by extensions ['colcon_meta']
+[0.175s] Level 1:colcon.colcon_core.package_identification:_identify(URDF) by extension 'colcon_meta'
+[0.175s] Level 1:colcon.colcon_core.package_identification:_identify(URDF) by extensions ['ros']
+[0.175s] Level 1:colcon.colcon_core.package_identification:_identify(URDF) by extension 'ros'
+[0.175s] Level 1:colcon.colcon_core.package_identification:_identify(URDF) by extensions ['cmake', 'python']
+[0.175s] Level 1:colcon.colcon_core.package_identification:_identify(URDF) by extension 'cmake'
+[0.175s] Level 1:colcon.colcon_core.package_identification:_identify(URDF) by extension 'python'
+[0.175s] Level 1:colcon.colcon_core.package_identification:_identify(URDF) by extensions ['python_setup_py']
+[0.175s] Level 1:colcon.colcon_core.package_identification:_identify(URDF) by extension 'python_setup_py'
+[0.176s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.176s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.176s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.176s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.176s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.176s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.176s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.176s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.176s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.176s] Level 1:colcon.colcon_core.package_identification:_identify(my_robot_viz) by extensions ['ignore', 'ignore_ament_install']
+[0.176s] Level 1:colcon.colcon_core.package_identification:_identify(my_robot_viz) by extension 'ignore'
+[0.176s] Level 1:colcon.colcon_core.package_identification:_identify(my_robot_viz) by extension 'ignore_ament_install'
+[0.176s] Level 1:colcon.colcon_core.package_identification:_identify(my_robot_viz) by extensions ['colcon_pkg']
+[0.176s] Level 1:colcon.colcon_core.package_identification:_identify(my_robot_viz) by extension 'colcon_pkg'
+[0.176s] Level 1:colcon.colcon_core.package_identification:_identify(my_robot_viz) by extensions ['colcon_meta']
+[0.176s] Level 1:colcon.colcon_core.package_identification:_identify(my_robot_viz) by extension 'colcon_meta'
+[0.176s] Level 1:colcon.colcon_core.package_identification:_identify(my_robot_viz) by extensions ['ros']
+[0.176s] Level 1:colcon.colcon_core.package_identification:_identify(my_robot_viz) by extension 'ros'
+[0.179s] DEBUG:colcon.colcon_core.package_identification:Package 'my_robot_viz' with type 'ros.ament_python' and name 'my_robot_viz'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/micro_ros_setup) by extensions ['ignore', 'ignore_ament_install']
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/micro_ros_setup) by extension 'ignore'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/micro_ros_setup) by extension 'ignore_ament_install'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/micro_ros_setup) by extensions ['colcon_pkg']
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/micro_ros_setup) by extension 'colcon_pkg'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/micro_ros_setup) by extensions ['colcon_meta']
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/micro_ros_setup) by extension 'colcon_meta'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/micro_ros_setup) by extensions ['ros']
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/micro_ros_setup) by extension 'ros'
+[0.180s] DEBUG:colcon.colcon_core.package_identification:Package 'src/micro_ros_setup' with type 'ros.ament_cmake' and name 'micro_ros_setup'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros) by extensions ['ignore', 'ignore_ament_install']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros) by extension 'ignore'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros) by extension 'ignore_ament_install'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros) by extensions ['colcon_pkg']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros) by extension 'colcon_pkg'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros) by extensions ['colcon_meta']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros) by extension 'colcon_meta'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros) by extensions ['ros']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros) by extension 'ros'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros) by extensions ['cmake', 'python']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros) by extension 'cmake'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros) by extension 'python'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros) by extensions ['python_setup_py']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros) by extension 'python_setup_py'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/drive_base) by extensions ['ignore', 'ignore_ament_install']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/drive_base) by extension 'ignore'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/drive_base) by extension 'ignore_ament_install'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/drive_base) by extensions ['colcon_pkg']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/drive_base) by extension 'colcon_pkg'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/drive_base) by extensions ['colcon_meta']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/drive_base) by extension 'colcon_meta'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/drive_base) by extensions ['ros']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/drive_base) by extension 'ros'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/drive_base) by extensions ['cmake', 'python']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/drive_base) by extension 'cmake'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/drive_base) by extension 'python'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/drive_base) by extensions ['python_setup_py']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/drive_base) by extension 'python_setup_py'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/drive_base/drive_base_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/drive_base/drive_base_msgs) by extension 'ignore'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/drive_base/drive_base_msgs) by extension 'ignore_ament_install'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/drive_base/drive_base_msgs) by extensions ['colcon_pkg']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/drive_base/drive_base_msgs) by extension 'colcon_pkg'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/drive_base/drive_base_msgs) by extensions ['colcon_meta']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/drive_base/drive_base_msgs) by extension 'colcon_meta'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/drive_base/drive_base_msgs) by extensions ['ros']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/drive_base/drive_base_msgs) by extension 'ros'
+[0.182s] DEBUG:colcon.colcon_core.package_identification:Package 'src/uros/drive_base/drive_base_msgs' with type 'ros.ament_cmake' and name 'drive_base_msgs'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent) by extensions ['ignore', 'ignore_ament_install']
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent) by extension 'ignore'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent) by extension 'ignore_ament_install'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent) by extensions ['colcon_pkg']
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent) by extension 'colcon_pkg'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent) by extensions ['colcon_meta']
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent) by extension 'colcon_meta'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent) by extensions ['ros']
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent) by extension 'ros'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent) by extensions ['cmake', 'python']
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent) by extension 'cmake'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent) by extension 'python'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent) by extensions ['python_setup_py']
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent) by extension 'python_setup_py'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/micro_ros_agent) by extensions ['ignore', 'ignore_ament_install']
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/micro_ros_agent) by extension 'ignore'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/micro_ros_agent) by extension 'ignore_ament_install'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/micro_ros_agent) by extensions ['colcon_pkg']
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/micro_ros_agent) by extension 'colcon_pkg'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/micro_ros_agent) by extensions ['colcon_meta']
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/micro_ros_agent) by extension 'colcon_meta'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/micro_ros_agent) by extensions ['ros']
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/micro_ros_agent) by extension 'ros'
+[0.183s] DEBUG:colcon.colcon_core.package_identification:Package 'src/uros/micro-ROS-Agent/micro_ros_agent' with type 'ros.ament_cmake' and name 'micro_ros_agent'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap) by extensions ['ignore', 'ignore_ament_install']
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap) by extension 'ignore'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap) by extension 'ignore_ament_install'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap) by extensions ['colcon_pkg']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap) by extension 'colcon_pkg'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap) by extensions ['colcon_meta']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap) by extension 'colcon_meta'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap) by extensions ['ros']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap) by extension 'ros'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap) by extensions ['cmake', 'python']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap) by extension 'cmake'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap) by extension 'python'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap) by extensions ['python_setup_py']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap) by extension 'python_setup_py'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap/hooks) by extensions ['ignore', 'ignore_ament_install']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap/hooks) by extension 'ignore'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap/hooks) by extension 'ignore_ament_install'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap/hooks) by extensions ['colcon_pkg']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap/hooks) by extension 'colcon_pkg'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap/hooks) by extensions ['colcon_meta']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap/hooks) by extension 'colcon_meta'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap/hooks) by extensions ['ros']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap/hooks) by extension 'ros'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap/hooks) by extensions ['cmake', 'python']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap/hooks) by extension 'cmake'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap/hooks) by extension 'python'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap/hooks) by extensions ['python_setup_py']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap/hooks) by extension 'python_setup_py'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap/local) by extensions ['ignore', 'ignore_ament_install']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap/local) by extension 'ignore'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap/local) by extension 'ignore_ament_install'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap/local) by extensions ['colcon_pkg']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap/local) by extension 'colcon_pkg'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap/local) by extensions ['colcon_meta']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap/local) by extension 'colcon_meta'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap/local) by extensions ['ros']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap/local) by extension 'ros'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap/local) by extensions ['cmake', 'python']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap/local) by extension 'cmake'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap/local) by extension 'python'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap/local) by extensions ['python_setup_py']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro-ROS-Agent/snap/local) by extension 'python_setup_py'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro_ros_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro_ros_msgs) by extension 'ignore'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro_ros_msgs) by extension 'ignore_ament_install'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro_ros_msgs) by extensions ['colcon_pkg']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro_ros_msgs) by extension 'colcon_pkg'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro_ros_msgs) by extensions ['colcon_meta']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro_ros_msgs) by extension 'colcon_meta'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro_ros_msgs) by extensions ['ros']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/uros/micro_ros_msgs) by extension 'ros'
+[0.186s] DEBUG:colcon.colcon_core.package_identification:Package 'src/uros/micro_ros_msgs' with type 'ros.ament_cmake' and name 'micro_ros_msgs'
+[0.186s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.186s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.186s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.186s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.186s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.203s] INFO:colcon.colcon_core.package_selection:Skipping package 'my_robot_viz' in 'my_robot_viz'
+[0.203s] INFO:colcon.colcon_core.package_selection:Skipping package 'micro_ros_setup' in 'src/micro_ros_setup'
+[0.203s] INFO:colcon.colcon_core.package_selection:Skipping package 'drive_base_msgs' in 'src/uros/drive_base/drive_base_msgs'
+[0.203s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.203s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.205s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 2 installed packages in /home/franco/Desktop/Robotica/2dopar/RvizRobot/install
+[0.205s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 0 installed packages in /home/franco/ros2_ws/install
+[0.207s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 541 installed packages in /opt/ros/jazzy
+[0.209s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.276s] Level 5:colcon.colcon_core.verb:set package 'micro_ros_msgs' build argument 'cmake_args' from command line to '['-DUAGENT_BUILD_EXECUTABLE=OFF', '-DUAGENT_P2P_PROFILE=OFF', '--no-warn-unused-cli']'
+[0.276s] Level 5:colcon.colcon_core.verb:set package 'micro_ros_msgs' build argument 'cmake_target' from command line to 'None'
+[0.276s] Level 5:colcon.colcon_core.verb:set package 'micro_ros_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.276s] Level 5:colcon.colcon_core.verb:set package 'micro_ros_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.276s] Level 5:colcon.colcon_core.verb:set package 'micro_ros_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.276s] Level 5:colcon.colcon_core.verb:set package 'micro_ros_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.276s] Level 5:colcon.colcon_core.verb:set package 'micro_ros_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.276s] Level 5:colcon.colcon_core.verb:set package 'micro_ros_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.276s] Level 5:colcon.colcon_core.verb:set package 'micro_ros_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.276s] DEBUG:colcon.colcon_core.verb:Building package 'micro_ros_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/franco/Desktop/Robotica/2dopar/RvizRobot/build/micro_ros_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': ['-DUAGENT_BUILD_EXECUTABLE=OFF', '-DUAGENT_P2P_PROFILE=OFF', '--no-warn-unused-cli'], 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs', 'merge_install': False, 'path': '/home/franco/Desktop/Robotica/2dopar/RvizRobot/src/uros/micro_ros_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.277s] Level 5:colcon.colcon_core.verb:set package 'micro_ros_agent' build argument 'cmake_args' from command line to '['-DUAGENT_BUILD_EXECUTABLE=OFF', '-DUAGENT_P2P_PROFILE=OFF', '--no-warn-unused-cli']'
+[0.277s] Level 5:colcon.colcon_core.verb:set package 'micro_ros_agent' build argument 'cmake_target' from command line to 'None'
+[0.277s] Level 5:colcon.colcon_core.verb:set package 'micro_ros_agent' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.277s] Level 5:colcon.colcon_core.verb:set package 'micro_ros_agent' build argument 'cmake_clean_cache' from command line to 'False'
+[0.277s] Level 5:colcon.colcon_core.verb:set package 'micro_ros_agent' build argument 'cmake_clean_first' from command line to 'False'
+[0.277s] Level 5:colcon.colcon_core.verb:set package 'micro_ros_agent' build argument 'cmake_force_configure' from command line to 'False'
+[0.277s] Level 5:colcon.colcon_core.verb:set package 'micro_ros_agent' build argument 'ament_cmake_args' from command line to 'None'
+[0.277s] Level 5:colcon.colcon_core.verb:set package 'micro_ros_agent' build argument 'catkin_cmake_args' from command line to 'None'
+[0.277s] Level 5:colcon.colcon_core.verb:set package 'micro_ros_agent' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.277s] DEBUG:colcon.colcon_core.verb:Building package 'micro_ros_agent' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/franco/Desktop/Robotica/2dopar/RvizRobot/build/micro_ros_agent', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': ['-DUAGENT_BUILD_EXECUTABLE=OFF', '-DUAGENT_P2P_PROFILE=OFF', '--no-warn-unused-cli'], 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent', 'merge_install': False, 'path': '/home/franco/Desktop/Robotica/2dopar/RvizRobot/src/uros/micro-ROS-Agent/micro_ros_agent', 'symlink_install': False, 'test_result_base': None}
+[0.277s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.278s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.278s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/franco/Desktop/Robotica/2dopar/RvizRobot/src/uros/micro_ros_msgs' with build type 'ament_cmake'
+[0.278s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/franco/Desktop/Robotica/2dopar/RvizRobot/src/uros/micro_ros_msgs'
+[0.280s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.280s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.280s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.288s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/franco/Desktop/Robotica/2dopar/RvizRobot/build/micro_ros_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/my_robot_viz:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/franco/Desktop/Robotica/2dopar/RvizRobot/src/uros/micro_ros_msgs -DUAGENT_BUILD_EXECUTABLE=OFF -DUAGENT_P2P_PROFILE=OFF --no-warn-unused-cli -DCMAKE_INSTALL_PREFIX=/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs
+[2.945s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/franco/Desktop/Robotica/2dopar/RvizRobot/build/micro_ros_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/my_robot_viz:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/franco/Desktop/Robotica/2dopar/RvizRobot/src/uros/micro_ros_msgs -DUAGENT_BUILD_EXECUTABLE=OFF -DUAGENT_P2P_PROFILE=OFF --no-warn-unused-cli -DCMAKE_INSTALL_PREFIX=/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs
+[2.946s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/franco/Desktop/Robotica/2dopar/RvizRobot/build/micro_ros_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/my_robot_viz:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/franco/Desktop/Robotica/2dopar/RvizRobot/build/micro_ros_msgs -- -j16 -l16
+[5.865s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/franco/Desktop/Robotica/2dopar/RvizRobot/build/micro_ros_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/my_robot_viz:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/franco/Desktop/Robotica/2dopar/RvizRobot/build/micro_ros_msgs -- -j16 -l16
+[5.876s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/franco/Desktop/Robotica/2dopar/RvizRobot/build/micro_ros_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/my_robot_viz:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/franco/Desktop/Robotica/2dopar/RvizRobot/build/micro_ros_msgs
+[5.946s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(micro_ros_msgs)
+[5.947s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/franco/Desktop/Robotica/2dopar/RvizRobot/build/micro_ros_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/my_robot_viz:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/franco/Desktop/Robotica/2dopar/RvizRobot/build/micro_ros_msgs
+[5.948s] Level 1:colcon.colcon_core.environment:checking '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs' for CMake module files
+[5.949s] Level 1:colcon.colcon_core.environment:checking '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs' for CMake config files
+[5.949s] Level 1:colcon.colcon_core.shell:create_environment_hook('micro_ros_msgs', 'cmake_prefix_path')
+[5.949s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/share/micro_ros_msgs/hook/cmake_prefix_path.ps1'
+[5.950s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/share/micro_ros_msgs/hook/cmake_prefix_path.dsv'
+[5.950s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/share/micro_ros_msgs/hook/cmake_prefix_path.sh'
+[5.950s] Level 1:colcon.colcon_core.environment:checking '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/lib'
+[5.950s] Level 1:colcon.colcon_core.shell:create_environment_hook('micro_ros_msgs', 'ld_library_path_lib')
+[5.951s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/share/micro_ros_msgs/hook/ld_library_path_lib.ps1'
+[5.951s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/share/micro_ros_msgs/hook/ld_library_path_lib.dsv'
+[5.951s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/share/micro_ros_msgs/hook/ld_library_path_lib.sh'
+[5.951s] Level 1:colcon.colcon_core.environment:checking '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/bin'
+[5.951s] Level 1:colcon.colcon_core.environment:checking '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/lib/pkgconfig/micro_ros_msgs.pc'
+[5.952s] Level 1:colcon.colcon_core.environment:checking '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/lib/python3.12/site-packages'
+[5.952s] Level 1:colcon.colcon_core.shell:create_environment_hook('micro_ros_msgs', 'pythonpath')
+[5.952s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/share/micro_ros_msgs/hook/pythonpath.ps1'
+[5.952s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/share/micro_ros_msgs/hook/pythonpath.dsv'
+[5.952s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/share/micro_ros_msgs/hook/pythonpath.sh'
+[5.953s] Level 1:colcon.colcon_core.environment:checking '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/bin'
+[5.953s] INFO:colcon.colcon_core.shell:Creating package script '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/share/micro_ros_msgs/package.ps1'
+[5.953s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/share/micro_ros_msgs/package.dsv'
+[5.954s] INFO:colcon.colcon_core.shell:Creating package script '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/share/micro_ros_msgs/package.sh'
+[5.954s] INFO:colcon.colcon_core.shell:Creating package script '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/share/micro_ros_msgs/package.bash'
+[5.954s] INFO:colcon.colcon_core.shell:Creating package script '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/share/micro_ros_msgs/package.zsh'
+[5.955s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/share/colcon-core/packages/micro_ros_msgs)
+[5.955s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(micro_ros_msgs)
+[5.955s] Level 1:colcon.colcon_core.environment:checking '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs' for CMake module files
+[5.956s] Level 1:colcon.colcon_core.environment:checking '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs' for CMake config files
+[5.956s] Level 1:colcon.colcon_core.shell:create_environment_hook('micro_ros_msgs', 'cmake_prefix_path')
+[5.956s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/share/micro_ros_msgs/hook/cmake_prefix_path.ps1'
+[5.957s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/share/micro_ros_msgs/hook/cmake_prefix_path.dsv'
+[5.957s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/share/micro_ros_msgs/hook/cmake_prefix_path.sh'
+[5.957s] Level 1:colcon.colcon_core.environment:checking '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/lib'
+[5.957s] Level 1:colcon.colcon_core.shell:create_environment_hook('micro_ros_msgs', 'ld_library_path_lib')
+[5.957s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/share/micro_ros_msgs/hook/ld_library_path_lib.ps1'
+[5.958s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/share/micro_ros_msgs/hook/ld_library_path_lib.dsv'
+[5.958s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/share/micro_ros_msgs/hook/ld_library_path_lib.sh'
+[5.958s] Level 1:colcon.colcon_core.environment:checking '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/bin'
+[5.958s] Level 1:colcon.colcon_core.environment:checking '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/lib/pkgconfig/micro_ros_msgs.pc'
+[5.958s] Level 1:colcon.colcon_core.environment:checking '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/lib/python3.12/site-packages'
+[5.958s] Level 1:colcon.colcon_core.shell:create_environment_hook('micro_ros_msgs', 'pythonpath')
+[5.958s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/share/micro_ros_msgs/hook/pythonpath.ps1'
+[5.959s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/share/micro_ros_msgs/hook/pythonpath.dsv'
+[5.959s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/share/micro_ros_msgs/hook/pythonpath.sh'
+[5.959s] Level 1:colcon.colcon_core.environment:checking '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/bin'
+[5.959s] INFO:colcon.colcon_core.shell:Creating package script '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/share/micro_ros_msgs/package.ps1'
+[5.960s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/share/micro_ros_msgs/package.dsv'
+[5.960s] INFO:colcon.colcon_core.shell:Creating package script '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/share/micro_ros_msgs/package.sh'
+[5.960s] INFO:colcon.colcon_core.shell:Creating package script '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/share/micro_ros_msgs/package.bash'
+[5.961s] INFO:colcon.colcon_core.shell:Creating package script '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/share/micro_ros_msgs/package.zsh'
+[5.961s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/share/colcon-core/packages/micro_ros_msgs)
+[5.961s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/franco/Desktop/Robotica/2dopar/RvizRobot/src/uros/micro-ROS-Agent/micro_ros_agent' with build type 'ament_cmake'
+[5.961s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/franco/Desktop/Robotica/2dopar/RvizRobot/src/uros/micro-ROS-Agent/micro_ros_agent'
+[5.961s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[5.961s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[5.969s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/franco/Desktop/Robotica/2dopar/RvizRobot/build/micro_ros_agent': AMENT_PREFIX_PATH=/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs:/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_setup:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/my_robot_viz:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake /home/franco/Desktop/Robotica/2dopar/RvizRobot/src/uros/micro-ROS-Agent/micro_ros_agent -DUAGENT_BUILD_EXECUTABLE=OFF -DUAGENT_P2P_PROFILE=OFF --no-warn-unused-cli -DCMAKE_INSTALL_PREFIX=/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent
+[6.299s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/franco/Desktop/Robotica/2dopar/RvizRobot/build/micro_ros_agent' returned '0': AMENT_PREFIX_PATH=/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs:/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_setup:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/my_robot_viz:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake /home/franco/Desktop/Robotica/2dopar/RvizRobot/src/uros/micro-ROS-Agent/micro_ros_agent -DUAGENT_BUILD_EXECUTABLE=OFF -DUAGENT_P2P_PROFILE=OFF --no-warn-unused-cli -DCMAKE_INSTALL_PREFIX=/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent
+[6.300s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/franco/Desktop/Robotica/2dopar/RvizRobot/build/micro_ros_agent': AMENT_PREFIX_PATH=/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs:/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_setup:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/my_robot_viz:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/franco/Desktop/Robotica/2dopar/RvizRobot/build/micro_ros_agent -- -j16 -l16
+[60.402s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/franco/Desktop/Robotica/2dopar/RvizRobot/build/micro_ros_agent' returned '0': AMENT_PREFIX_PATH=/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs:/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_setup:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/my_robot_viz:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/franco/Desktop/Robotica/2dopar/RvizRobot/build/micro_ros_agent -- -j16 -l16
+[60.403s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/franco/Desktop/Robotica/2dopar/RvizRobot/build/micro_ros_agent': AMENT_PREFIX_PATH=/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs:/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_setup:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/my_robot_viz:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/franco/Desktop/Robotica/2dopar/RvizRobot/build/micro_ros_agent
+[60.412s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(micro_ros_agent)
+[60.412s] Level 1:colcon.colcon_core.environment:checking '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent' for CMake module files
+[60.412s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/franco/Desktop/Robotica/2dopar/RvizRobot/build/micro_ros_agent' returned '0': AMENT_PREFIX_PATH=/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs:/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_setup:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/my_robot_viz:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/franco/Desktop/Robotica/2dopar/RvizRobot/build/micro_ros_agent
+[60.412s] Level 1:colcon.colcon_core.environment:checking '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent' for CMake config files
+[60.412s] Level 1:colcon.colcon_core.shell:create_environment_hook('micro_ros_agent', 'cmake_prefix_path')
+[60.413s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/share/micro_ros_agent/hook/cmake_prefix_path.ps1'
+[60.413s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/share/micro_ros_agent/hook/cmake_prefix_path.dsv'
+[60.413s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/share/micro_ros_agent/hook/cmake_prefix_path.sh'
+[60.413s] Level 1:colcon.colcon_core.environment:checking '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/lib'
+[60.414s] Level 1:colcon.colcon_core.shell:create_environment_hook('micro_ros_agent', 'ld_library_path_lib')
+[60.414s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/share/micro_ros_agent/hook/ld_library_path_lib.ps1'
+[60.414s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/share/micro_ros_agent/hook/ld_library_path_lib.dsv'
+[60.414s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/share/micro_ros_agent/hook/ld_library_path_lib.sh'
+[60.414s] Level 1:colcon.colcon_core.environment:checking '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/bin'
+[60.414s] Level 1:colcon.colcon_core.environment:checking '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/lib/pkgconfig/micro_ros_agent.pc'
+[60.415s] Level 1:colcon.colcon_core.environment:checking '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/lib/python3.12/site-packages'
+[60.415s] Level 1:colcon.colcon_core.environment:checking '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/bin'
+[60.415s] INFO:colcon.colcon_core.shell:Creating package script '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/share/micro_ros_agent/package.ps1'
+[60.415s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/share/micro_ros_agent/package.dsv'
+[60.416s] INFO:colcon.colcon_core.shell:Creating package script '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/share/micro_ros_agent/package.sh'
+[60.416s] INFO:colcon.colcon_core.shell:Creating package script '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/share/micro_ros_agent/package.bash'
+[60.416s] INFO:colcon.colcon_core.shell:Creating package script '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/share/micro_ros_agent/package.zsh'
+[60.416s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/share/colcon-core/packages/micro_ros_agent)
+[60.417s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(micro_ros_agent)
+[60.417s] Level 1:colcon.colcon_core.environment:checking '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent' for CMake module files
+[60.417s] Level 1:colcon.colcon_core.environment:checking '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent' for CMake config files
+[60.417s] Level 1:colcon.colcon_core.shell:create_environment_hook('micro_ros_agent', 'cmake_prefix_path')
+[60.417s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/share/micro_ros_agent/hook/cmake_prefix_path.ps1'
+[60.417s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/share/micro_ros_agent/hook/cmake_prefix_path.dsv'
+[60.418s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/share/micro_ros_agent/hook/cmake_prefix_path.sh'
+[60.418s] Level 1:colcon.colcon_core.environment:checking '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/lib'
+[60.418s] Level 1:colcon.colcon_core.shell:create_environment_hook('micro_ros_agent', 'ld_library_path_lib')
+[60.418s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/share/micro_ros_agent/hook/ld_library_path_lib.ps1'
+[60.418s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/share/micro_ros_agent/hook/ld_library_path_lib.dsv'
+[60.419s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/share/micro_ros_agent/hook/ld_library_path_lib.sh'
+[60.419s] Level 1:colcon.colcon_core.environment:checking '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/bin'
+[60.419s] Level 1:colcon.colcon_core.environment:checking '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/lib/pkgconfig/micro_ros_agent.pc'
+[60.419s] Level 1:colcon.colcon_core.environment:checking '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/lib/python3.12/site-packages'
+[60.419s] Level 1:colcon.colcon_core.environment:checking '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/bin'
+[60.419s] INFO:colcon.colcon_core.shell:Creating package script '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/share/micro_ros_agent/package.ps1'
+[60.420s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/share/micro_ros_agent/package.dsv'
+[60.420s] INFO:colcon.colcon_core.shell:Creating package script '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/share/micro_ros_agent/package.sh'
+[60.420s] INFO:colcon.colcon_core.shell:Creating package script '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/share/micro_ros_agent/package.bash'
+[60.420s] INFO:colcon.colcon_core.shell:Creating package script '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/share/micro_ros_agent/package.zsh'
+[60.421s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/micro_ros_agent/share/colcon-core/packages/micro_ros_agent)
+[60.421s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[60.421s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[60.421s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[60.421s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[60.426s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[60.426s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[60.426s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[60.434s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[60.435s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/local_setup.ps1'
+[60.436s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/_local_setup_util_ps1.py'
+[60.437s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/setup.ps1'
+[60.438s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/local_setup.sh'
+[60.439s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/_local_setup_util_sh.py'
+[60.439s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/setup.sh'
+[60.440s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/local_setup.bash'
+[60.441s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/setup.bash'
+[60.441s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/local_setup.zsh'
+[60.441s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/franco/Desktop/Robotica/2dopar/RvizRobot/install/setup.zsh'

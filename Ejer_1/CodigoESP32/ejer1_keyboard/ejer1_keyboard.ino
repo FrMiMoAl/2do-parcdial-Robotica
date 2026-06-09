@@ -1,0 +1,540 @@
+#include <Arduino.h>
+#include <Wire.h>
+#include <micro_ros_arduino.h>
+
+#include <rcl/rcl.h>
+#include <rcl/error_handling.h>
+#include <rclc/rclc.h>
+#include <rclc/executor.h>
+
+#include <std_msgs/msg/int32.h>
+#include <std_msgs/msg/float32.h>
+#include <geometry_msgs/msg/vector3.h>
+#include <geometry_msgs/msg/twist.h>
+
+// =====================================================
+// CONFIGURACIÓN DE TU ENCODER
+// =====================================================
+#define ENCODER_RESOLUTION 330.0
+
+// =====================================================
+// PINES SEGUN TU ESQUEMATICO
+// =====================================================
+#define PWMA_PIN 25
+#define AIN2_PIN 27
+#define AIN1_PIN 26
+
+#define PWMB_PIN 18
+#define BIN2_PIN 17
+#define BIN1_PIN 16
+
+#define STBY_PIN 14
+
+#define SDA_PIN 21
+#define SCL_PIN 22
+#define MPU6050_ADDR 0x68
+
+#define ENCODER_A_PIN 32
+#define END1_POS_PIN 33
+#define ENCODER_B_PIN 34
+#define END2_POS_PIN 35
+
+#define LED_PIN 2
+
+// =====================================================
+// CONFIGURACION PWM Y RANGOS
+// =====================================================
+#define PWM_FREQ 20000
+#define PWM_RESOLUTION 8
+#define PWM_CHANNEL_A 0
+#define PWM_CHANNEL_B 1
+
+#define USE_LIMIT_SAFETY false
+#define LIMIT_ACTIVE_LOW true
+
+const int PWM_MIN_MOV = 80;
+const int PWM_MAX_MOV = 255;
+const int PWM_DEADBAND = 25;
+
+// =====================================================
+// PARÁMETROS SMOOTH MODE
+// =====================================================
+const float MAX_RPM_CHANGE_PER_CYCLE = 3.0;
+const float input_filter_alpha = 0.6;
+
+// =====================================================
+// FILTRO DE VELOCIDAD
+// =====================================================
+const float velocity_filter_alpha = 0.6;
+
+// =====================================================
+// COMPENSACIÓN DE ASIMETRÍA MOTOR
+// =====================================================
+const float motor_b_balance_factor = 1.02;  
+
+// =====================================================
+// PARÁMETROS IMU
+// =====================================================
+float gyro_filter_alpha = 0.8;
+const float GYRO_DEADBAND = 0.1;
+const unsigned long GYRO_RECAL_INTERVAL = 10000;
+float gyro_recal_old_weight = 0.9;
+float gyro_recal_new_weight = 0.1;
+
+// =====================================================
+// CLASE PID
+// =====================================================
+class PIDController {
+  public:
+    float kp, ki, kd, dt, output_min, output_max, integral_limit;
+    float _integral, _prev_error;
+
+    PIDController(float kp = 0.6, float ki = 0.10, float kd = 0.15, float dt = 0.02,  
+                  float output_min = -1.0, float output_max = 1.0, float integral_limit = 25.0) {
+        this->kp = kp;
+        this->ki = ki;
+        this->kd = kd;
+        this->dt = dt;
+        this->output_min = output_min;
+        this->output_max = output_max;
+        this->integral_limit = integral_limit;
+        reset();
+    }
+
+    float compute(float setpoint, float measurement) {
+        float error = setpoint - measurement;
+        float p_term = kp * error;
+
+        _integral += error * dt;
+        _integral = max(-integral_limit, min(integral_limit, _integral));
+        float i_term = ki * _integral;
+
+        float derivative = (error - _prev_error) / dt;
+        float d_term = kd * derivative;
+        _prev_error = error;
+
+        float output = p_term + i_term + d_term;
+        output = max(output_min, min(output_max, output));
+
+        if (output >= output_max || output <= output_min) {
+            _integral -= error * dt;  
+        }
+
+        return output;
+    }
+
+    void reset() {
+        _integral = 0.0;
+        _prev_error = 0.0;
+    }
+
+    void set_gains(float kp, float ki, float kd) {
+        this->kp = kp;
+        this->ki = ki;
+        this->kd = kd;
+        reset();
+    }
+};
+
+PIDController pid_motor_a(0.6, 0.10, 0.15, 0.02); 
+PIDController pid_motor_b(0.6, 0.10, 0.15, 0.02); 
+
+// =====================================================
+// MICRO-ROS OBJETOS
+// =====================================================
+rcl_node_t node;
+rclc_support_t support;
+rclc_executor_t executor;
+rcl_allocator_t allocator;
+
+rcl_subscription_t cmd_vel_sub;
+geometry_msgs__msg__Twist cmd_vel_msg;
+
+rcl_publisher_t rpm_left_pub;
+std_msgs__msg__Float32 rpm_left_msg;
+
+rcl_publisher_t rpm_right_pub;
+std_msgs__msg__Float32 rpm_right_msg;
+
+rcl_publisher_t imu_yaw_pub;
+std_msgs__msg__Float32 imu_yaw_msg;
+
+// =====================================================
+// VARIABLES DE ESTADO Y CONTROL
+// =====================================================
+int motor_a_cmd = 0;
+int motor_b_cmd = 0;
+
+volatile long encoder_a_total_ticks = 0;
+volatile long encoder_b_total_ticks = 0;
+
+unsigned long last_control_time = 0;
+unsigned long last_gyro_recal_time = 0;
+
+float target_rpm_a = 0.0;
+float target_rpm_b = 0.0;
+
+float _prev_rpm_a = 0.0;
+float _prev_rpm_b = 0.0;
+float _prev_linear = 0.0;
+float _prev_angular = 0.0;
+
+float gyro_x_offset = 0;
+float current_yaw = 0;
+float target_yaw = 0;
+bool is_going_straight = false;
+unsigned long last_mpu_time = 0;
+
+float Kp_gyro = 0.5;
+float gyro_deadband_deg = 3.0;
+float _prev_gyro_x_filtered = 0.0;
+
+// =====================================================
+// RUTINAS DE INTERRUPCIÓN (ISRs)
+// =====================================================
+void IRAM_ATTR ISR_encoder_a() {
+  encoder_a_total_ticks++;
+}
+
+void IRAM_ATTR ISR_encoder_b() {
+  encoder_b_total_ticks++;
+}
+
+// =====================================================
+// PROTOTIPOS
+// =====================================================
+void motor_a_write(int pwm);
+void motor_b_write(int pwm);
+void motors_init();
+void mpu6050_init_improved();
+void mpu6050_init() { mpu6050_init_improved(); }
+void recalibrate_gyro_offset_dynamic();
+void update_yaw_improved();
+void update_yaw() { update_yaw_improved(); }
+void control_loop_pid();
+float constrain_change(float current, float previous, float max_change);
+float apply_lowpass_filter(float current, float previous, float alpha);
+
+// =====================================================
+// ERROR
+// =====================================================
+#define RCCHECK(fn) { rcl_ret_t temp_rc = fn; if ((temp_rc != RCL_RET_OK)) error_loop(); }
+#define RCSOFTCHECK(fn) { rcl_ret_t temp_rc = fn; (void)temp_rc; }
+
+void error_loop() {
+  while (1) {
+    digitalWrite(LED_PIN, !digitalRead(LED_PIN));
+    delay(100);
+  }
+}
+
+float apply_lowpass_filter(float current, float previous, float alpha) {
+  return alpha * current + (1.0 - alpha) * previous;
+}
+
+float constrain_change(float current, float previous, float max_change) {
+  float delta = current - previous;
+  if (delta > max_change) {
+    return previous + max_change;
+  } else if (delta < -max_change) {
+    return previous - max_change;
+  }
+  return current;
+}
+
+/// =====================================================
+// LÓGICA /cmd_vel - CORREGIDA CON CORTE DIRECTO DE FILTRO
+// =====================================================
+void cmd_vel_callback(const void * msgin) {
+  const geometry_msgs__msg__Twist * msg =
+    (const geometry_msgs__msg__Twist *)msgin;
+
+  float linear = msg->linear.x;
+  float angular = msg->angular.z;
+
+  // 🚨 CORTE RADICAL: Si el comando de entrada es prácticamente cero, 
+  // reseteamos los filtros en el acto para evitar el goteo residual.
+  if (fabs(linear) < 0.01 && fabs(angular) < 0.01) {
+    linear = 0.0;
+    angular = 0.0;
+    _prev_linear = 0.0;
+    _prev_angular = 0.0;
+    target_rpm_a = 0.0;
+    target_rpm_b = 0.0;
+  } else {
+    // Si hay comandos de movimiento reales, el filtro opera normalmente
+    linear = apply_lowpass_filter(linear, _prev_linear, input_filter_alpha);
+    angular = apply_lowpass_filter(angular, _prev_angular, input_filter_alpha);
+    _prev_linear = linear;
+    _prev_angular = angular;
+  }
+
+  // 1. ATENUACIÓN LINEAL
+  float base_rpm = linear * 40.0;   
+  base_rpm = constrain(base_rpm, -25.0, 25.0); 
+
+  float rpm_left = base_rpm;
+  float rpm_right = base_rpm;
+
+  if (angular == 0.0 && linear != 0.0) {
+    if (!is_going_straight) {
+      target_yaw = current_yaw; 
+      is_going_straight = true;
+    }
+    
+    float error_yaw = target_yaw - current_yaw;
+    
+    if (fabs(error_yaw) > gyro_deadband_deg) {
+      float gyro_correction = error_yaw * Kp_gyro;
+      
+      if (linear < 0) {
+        rpm_left  -= gyro_correction;
+        rpm_right += gyro_correction;
+      } else {
+        rpm_left  += gyro_correction;
+        rpm_right -= gyro_correction;
+      }
+    }
+  } else {
+    is_going_straight = false;
+    
+    // 2. ATENUACIÓN ANGULAR
+    float turn_rpm = angular * 12.0; 
+    turn_rpm = constrain(turn_rpm, -15.0, 15.0); 
+    
+    rpm_left  -= turn_rpm;
+    rpm_right += turn_rpm;
+  }
+
+  // Si los comandos fueron forzados a cero arriba, las RPM deseadas caerán a cero de golpe aquí
+  target_rpm_a = constrain_change(rpm_left, target_rpm_a, MAX_RPM_CHANGE_PER_CYCLE);
+  float rpm_right_balanced = rpm_right / motor_b_balance_factor;
+  target_rpm_b = constrain_change(rpm_right_balanced, target_rpm_b, MAX_RPM_CHANGE_PER_CYCLE);
+}
+// =====================================================
+// LAZO PID (PRINCIPAL) - CORREGIDO CON APAGADO ABSOLUTO
+// =====================================================
+void control_loop_pid() {
+  unsigned long now = millis();
+  float dt = (now - last_control_time) / 1000.0;
+
+  if (dt < 0.02) return; 
+  last_control_time = now;
+
+  noInterrupts();
+  long ticks_a = encoder_a_total_ticks;
+  long ticks_b = encoder_b_total_ticks;
+  encoder_a_total_ticks = 0; 
+  encoder_b_total_ticks = 0;
+  interrupts();
+
+  float dt_minutes = dt / 60.0;
+  float current_rpm_a = ((float)ticks_a / ENCODER_RESOLUTION) / dt_minutes;
+  float current_rpm_b = ((float)ticks_b / ENCODER_RESOLUTION) / dt_minutes;
+
+  current_rpm_a = apply_lowpass_filter(current_rpm_a, _prev_rpm_a, velocity_filter_alpha);
+  current_rpm_b = apply_lowpass_filter(current_rpm_b, _prev_rpm_b, velocity_filter_alpha);
+  _prev_rpm_a = current_rpm_a;
+  _prev_rpm_b = current_rpm_b;
+
+  // =================================================================
+  // 🚨 BLOQUE DE SEGURIDAD ABSOLUTO: SI LA META ES 0, SE APAGA EN SECO
+  // =================================================================
+  if (abs(target_rpm_a) < 0.05 && abs(target_rpm_b) < 0.05) {
+    target_rpm_a = 0.0;
+    target_rpm_b = 0.0;
+    pid_motor_a.reset();
+    pid_motor_b.reset();
+    
+    // Forzar apagado de hardware directo al puente H
+    motor_a_write(0);
+    motor_b_write(0);
+    
+    // Publicar ceros para mantener la telemetría limpia
+    rpm_left_msg.data = 0.0;
+    RCSOFTCHECK(rcl_publish(&rpm_left_pub, &rpm_left_msg, NULL));
+    rpm_right_msg.data = 0.0;
+    RCSOFTCHECK(rcl_publish(&rpm_right_pub, &rpm_right_msg, NULL));
+    imu_yaw_msg.data = current_yaw;
+    RCSOFTCHECK(rcl_publish(&imu_yaw_pub, &imu_yaw_msg, NULL));
+    
+    return; // ROMPE LA FUNCIÓN AQUÍ. No ejecuta nada de lo que está abajo.
+  }
+
+  // --- El resto del código solo corre si el carro realmente debe moverse ---
+  if (target_rpm_a < 0) current_rpm_a = -current_rpm_a;
+  if (target_rpm_b < 0) current_rpm_b = -current_rpm_b;
+
+  float pid_out_a = pid_motor_a.compute(target_rpm_a, current_rpm_a);
+  float pid_out_b = pid_motor_b.compute(target_rpm_b, current_rpm_b);
+
+  int pwm_output_a = 0;
+  int pwm_output_b = 0;
+  
+  // Motor A
+  if (target_rpm_a > 0.1) {
+    pwm_output_a = map(pid_out_a * 1000, 0, 1000, PWM_MIN_MOV, PWM_MAX_MOV);
+    if (abs(pwm_output_a) < PWM_DEADBAND) { pwm_output_a = 0; pid_motor_a.reset(); }
+  } else if (target_rpm_a < -0.1) {
+    pwm_output_a = map(pid_out_a * 1000, -1000, 0, -PWM_MAX_MOV, -PWM_MIN_MOV);
+    if (abs(pwm_output_a) < PWM_DEADBAND) { pwm_output_a = 0; pid_motor_a.reset(); }
+  }
+
+  // Motor B
+  if (target_rpm_b > 0.1) {
+    pwm_output_b = map(pid_out_b * 1000, 0, 1000, PWM_MIN_MOV, PWM_MAX_MOV);
+    if (abs(pwm_output_b) < PWM_DEADBAND) { pwm_output_b = 0; pid_motor_b.reset(); }
+  } else if (target_rpm_b < -0.1) {
+    pwm_output_b = map(pid_out_b * 1000, -1000, 0, -PWM_MAX_MOV, -PWM_MIN_MOV);
+    if (abs(pwm_output_b) < PWM_DEADBAND) { pwm_output_b = 0; pid_motor_b.reset(); }
+  }
+
+  motor_a_write(pwm_output_a);
+  motor_b_write(pwm_output_b);
+
+  static unsigned long last_print = 0;
+  if (millis() - last_print >= 200) {
+    last_print = millis();
+    Serial.print("TargetA:"); Serial.print(target_rpm_a, 1);
+    Serial.print(" | RealA:"); Serial.print(current_rpm_a, 1);
+    Serial.print(" | PWMA:"); Serial.print(pwm_output_a);
+    Serial.print(" || TargetB:"); Serial.print(target_rpm_b, 1);
+    Serial.print(" | RealB:"); Serial.print(current_rpm_b, 1);
+    Serial.print(" | PWMB:"); Serial.print(pwm_output_b);
+    Serial.print(" | Yaw:"); Serial.println(current_yaw, 2);
+  }
+
+  rpm_left_msg.data = current_rpm_a;
+  RCSOFTCHECK(rcl_publish(&rpm_left_pub, &rpm_left_msg, NULL));
+
+  rpm_right_msg.data = current_rpm_b;
+  RCSOFTCHECK(rcl_publish(&rpm_right_pub, &rpm_right_msg, NULL));
+
+  imu_yaw_msg.data = current_yaw;
+  RCSOFTCHECK(rcl_publish(&imu_yaw_pub, &imu_yaw_msg, NULL));
+}
+// =====================================================
+// MOTOR A & B WRITE
+// =====================================================
+void motor_a_write(int pwm) {
+  pwm = constrain(pwm, -255, 255);
+  if (pwm > 0) { digitalWrite(AIN1_PIN, HIGH); digitalWrite(AIN2_PIN, LOW); ledcWrite(PWM_CHANNEL_A, pwm); } 
+  else if (pwm < 0) { digitalWrite(AIN1_PIN, LOW); digitalWrite(AIN2_PIN, HIGH); ledcWrite(PWM_CHANNEL_A, -pwm); } 
+  else { digitalWrite(AIN1_PIN, LOW); digitalWrite(AIN2_PIN, LOW); ledcWrite(PWM_CHANNEL_A, 0); }
+}
+
+void motor_b_write(int pwm) {
+  pwm = constrain(pwm, -255, 255);
+  if (pwm > 0) { digitalWrite(BIN1_PIN, HIGH); digitalWrite(BIN2_PIN, LOW); ledcWrite(PWM_CHANNEL_B, pwm); } 
+  else if (pwm < 0) { digitalWrite(BIN1_PIN, LOW); digitalWrite(BIN2_PIN, HIGH); ledcWrite(PWM_CHANNEL_B, -pwm); } 
+  else { digitalWrite(BIN1_PIN, LOW); digitalWrite(BIN2_PIN, LOW); ledcWrite(PWM_CHANNEL_B, 0); }
+}
+
+// =====================================================
+// MPU6050 MEJORADO
+// =====================================================
+void mpu6050_init_improved() {
+  Wire.begin(SDA_PIN, SCL_PIN);
+  Wire.beginTransmission(MPU6050_ADDR);
+  Wire.write(0x6B); Wire.write(0); Wire.endTransmission(true);
+  delay(100);
+
+  long sum = 0; int samples = 500;
+  Serial.println("Calibrando gyro...");
+  for (int i = 0; i < samples; i++) {
+    Wire.beginTransmission(MPU6050_ADDR); Wire.write(0x43); Wire.endTransmission(false);
+    Wire.requestFrom((uint8_t)MPU6050_ADDR, (size_t)2, true);
+    int16_t raw_x = (Wire.read() << 8) | Wire.read();
+    sum += raw_x; delay(2);
+  }
+  gyro_x_offset = (float)sum / samples;
+  Serial.print("✅ Gyro Offset: "); Serial.println(gyro_x_offset);
+  last_mpu_time = millis();
+  last_gyro_recal_time = millis();
+}
+
+void update_yaw_improved() {
+  unsigned long current_time = millis();
+  float dt = (current_time - last_mpu_time) / 1000.0; 
+  last_mpu_time = current_time;
+  if (dt <= 0.0) return;
+
+  Wire.beginTransmission(MPU6050_ADDR); Wire.write(0x43); Wire.endTransmission(false);
+  Wire.requestFrom((uint8_t)MPU6050_ADDR, (size_t)2, true);
+  int16_t raw_x = (Wire.read() << 8) | Wire.read();
+  float gyro_x = ((float)raw_x - gyro_x_offset) / 131.0;
+  if (abs(gyro_x) < GYRO_DEADBAND) gyro_x = 0.0;
+
+  float filtered_gyro_x = gyro_filter_alpha * gyro_x + (1.0 - gyro_filter_alpha) * _prev_gyro_x_filtered;
+  _prev_gyro_x_filtered = filtered_gyro_x;
+  current_yaw += filtered_gyro_x * dt;
+
+  if (millis() - last_gyro_recal_time > GYRO_RECAL_INTERVAL) {
+    recalibrate_gyro_offset_dynamic();
+    last_gyro_recal_time = millis();
+  }
+}
+
+void recalibrate_gyro_offset_dynamic() {
+  if (abs(target_rpm_a) < 5.0 && abs(target_rpm_b) < 5.0) {
+    long sum = 0; int samples = 100;
+    for (int i = 0; i < samples; i++) {
+      Wire.beginTransmission(MPU6050_ADDR); Wire.write(0x43); Wire.endTransmission(false);
+      Wire.requestFrom((uint8_t)MPU6050_ADDR, (size_t)2, true);
+      int16_t raw_x = (Wire.read() << 8) | Wire.read();
+      sum += raw_x; delay(1);
+    }
+    float new_offset = (float)sum / samples;
+    gyro_x_offset = gyro_recal_old_weight * gyro_x_offset + gyro_recal_new_weight * new_offset;
+  }
+}
+
+void motors_init() {
+  pinMode(PWMA_PIN, OUTPUT); pinMode(AIN1_PIN, OUTPUT); pinMode(AIN2_PIN, OUTPUT);
+  pinMode(PWMB_PIN, OUTPUT); pinMode(BIN1_PIN, OUTPUT); pinMode(BIN2_PIN, OUTPUT);
+  pinMode(STBY_PIN, OUTPUT); digitalWrite(STBY_PIN, HIGH);
+  ledcSetup(PWM_CHANNEL_A, PWM_FREQ, PWM_RESOLUTION); ledcAttachPin(PWMA_PIN, PWM_CHANNEL_A);
+  ledcSetup(PWM_CHANNEL_B, PWM_FREQ, PWM_RESOLUTION); ledcAttachPin(PWMB_PIN, PWM_CHANNEL_B);
+  pinMode(ENCODER_A_PIN, INPUT_PULLUP); pinMode(ENCODER_B_PIN, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(ENCODER_A_PIN), ISR_encoder_a, RISING);
+  attachInterrupt(digitalPinToInterrupt(ENCODER_B_PIN), ISR_encoder_b, RISING);
+  motor_a_write(0); motor_b_write(0);
+}
+
+void setup() {
+  Serial.begin(115200); 
+  delay(500);
+  Serial.println("\n=== ROBOT ESP32 - TELEOP SUAVE ===");
+  pinMode(LED_PIN, OUTPUT);
+  mpu6050_init();
+
+  char ssid[] = "ZTE_2.4G_WRgugR";
+  char psk[]  = "aWV6fWY6";
+  char agent_ip[] = "192.168.1.102";
+  set_microros_wifi_transports(ssid, psk, agent_ip, 8888);
+  delay(2000);
+
+  motors_init();
+
+  allocator = rcl_get_default_allocator();
+  RCCHECK(rclc_support_init(&support, 0, NULL, &allocator));
+  RCCHECK(rclc_node_init_default(&node, "esp32_robot_node", "", &support));
+
+  RCCHECK(rclc_subscription_init_default(&cmd_vel_sub, &node, ROSIDL_GET_MSG_TYPE_SUPPORT(geometry_msgs, msg, Twist), "/cmd_vel"));
+  RCCHECK(rclc_publisher_init_default(&rpm_left_pub, &node, ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float32), "/real_rpm_left"));
+  RCCHECK(rclc_publisher_init_default(&rpm_right_pub, &node, ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float32), "/real_rpm_right"));
+  RCCHECK(rclc_publisher_init_default(&imu_yaw_pub, &node, ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float32), "/imu_yaw"));
+
+  RCCHECK(rclc_executor_init(&executor, &support.context, 2, &allocator));
+  RCCHECK(rclc_executor_add_subscription(&executor, &cmd_vel_sub, &cmd_vel_msg, &cmd_vel_callback, ON_NEW_DATA));
+  
+  last_control_time = millis();
+  Serial.println("✅ Modo Teclado Suave Listo\n");
+}
+
+void loop() {
+  update_yaw();
+  control_loop_pid();
+  RCSOFTCHECK(rclc_executor_spin_some(&executor, RCL_MS_TO_NS(10)));
+  delay(1);
+}

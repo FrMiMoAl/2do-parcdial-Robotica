@@ -1,0 +1,169 @@
+Panels:
+  - Class: rviz_common/Displays
+    Help Height: 78
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Global Options1
+        - /RobotModel1
+        - /Odometry1
+        - /Path1
+      Splitter Ratio: 0.5
+    Tree Height: 620
+Visualization Manager:
+  Class: ""
+  Displays:
+    # ── Cuadrícula de referencia ──────────────────────────────────────────────
+    - Alpha: 0.5
+      Cell Size: 0.5
+      Class: rviz_default_plugins/Grid
+      Color: 100; 100; 120
+      Enabled: true
+      Line Style:
+        Line Width: 0.02
+        Value: Lines
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 20
+      Reference Frame: odom
+      Value: true
+
+    # ── Modelo 3D del robot (URDF) ────────────────────────────────────────────
+    - Alpha: 1
+      Class: rviz_default_plugins/RobotModel
+      Collision Enabled: false
+      Description Source: Topic
+      Description Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /robot_description
+      Enabled: true
+      Name: RobotModel
+      Visual Enabled: true
+
+    # ── Odometría: flecha de posición + orientación ──────────────────────────
+    - Class: rviz_default_plugins/Odometry
+      Enabled: true
+      Name: Odometry
+      Position Tolerance: 0.01
+      Angle Tolerance: 0.05
+      Keep: 200
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter Size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /odom
+      Shape:
+        Alpha: 1.0
+        Axes Length: 0.3
+        Axes Radius: 0.02
+        Color: 255; 100; 0
+        Head Length: 0.07
+        Head Radius: 0.04
+        Shaft Length: 0.23
+        Shaft Radius: 0.02
+        Value: Arrow
+
+    # ── Trayectoria del robot ─────────────────────────────────────────────────
+    - Alpha: 1.0
+      Buffer Length: 1
+      Class: rviz_default_plugins/Path
+      Color: 0; 200; 100
+      Enabled: true
+      Head Diameter: 0.05
+      Head Length: 0.05
+      Length: 0.3
+      Line Style: Lines
+      Line Width: 0.03
+      Name: Path
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0.01
+      Pose Color: 255; 85; 255
+      Pose Style: None
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /path
+      Value: true
+
+    # ── IMU: orientación visual del MPU6050 ───────────────────────────────────
+    - Acc. Moving Average Size: 10
+      Class: rviz_imu_plugin/Imu
+      Enabled: true
+      Name: IMU
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /imu/data
+      Value: true
+      Box Properties:
+        X Scale: 0.25
+        Y Scale: 0.15
+        Z Scale: 0.07
+        Alpha: 0.6
+      Acc. Vector Color: 255; 0; 0
+      Acc. Vector Scale: 0.1
+      Show Acc. Vector: false
+
+  Enabled: true
+  Global Options:
+    Background Color: 20; 20; 30
+    Fixed Frame: odom
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz_default_plugins/Interact
+      Hide Inactive Objects: true
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+    - Class: rviz_default_plugins/FocusCamera
+    - Class: rviz_default_plugins/Measure
+      Line color: 128; 128; 0
+  Value: true
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 3.0
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.06
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Focal Point:
+        X: 0
+        Y: 0
+        Z: 0
+      Focal Shape Fixed Size: true
+      Focal Shape Size: 0.05
+      Invert Z Axis: false
+      Name: Current View
+      Near Clip Distance: 0.01
+      Pitch: 0.8
+      Target Frame: base_link
+      Value: Orbit (rviz)
+      Yaw: 3.14
+    Saved: ~
+Window Geometry:
+  Displays:
+    collapsed: false
+  Height: 900
+  Hide Left Dock: false
+  Hide Right Dock: true
+  Width: 1400
+  X: 50
+  Y: 50

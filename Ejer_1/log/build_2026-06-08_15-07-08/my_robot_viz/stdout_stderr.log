@@ -1,0 +1,26 @@
+running develop
+running egg_info
+writing my_robot_viz.egg-info/PKG-INFO
+writing dependency_links to my_robot_viz.egg-info/dependency_links.txt
+writing entry points to my_robot_viz.egg-info/entry_points.txt
+writing requirements to my_robot_viz.egg-info/requires.txt
+writing top-level names to my_robot_viz.egg-info/top_level.txt
+reading manifest file 'my_robot_viz.egg-info/SOURCES.txt'
+writing manifest file 'my_robot_viz.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/lib/python3.12/site-packages/my-robot-viz.egg-link (link to .)
+Installing imu_bridge_node script to /home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/lib/my_robot_viz
+Installing odom_node script to /home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/lib/my_robot_viz
+
+Installed /home/samuel/Roboticaclase/RvizRobot/build/my_robot_viz
+running symlink_data
+symbolically linking /home/samuel/Roboticaclase/RvizRobot/build/my_robot_viz/resource/my_robot_viz -> /home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/share/ament_index/resource_index/packages
+symbolically linking /home/samuel/Roboticaclase/RvizRobot/build/my_robot_viz/package.xml -> /home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/share/my_robot_viz
+symbolically linking /home/samuel/Roboticaclase/RvizRobot/build/my_robot_viz/launch/visualize.launch.py -> /home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/share/my_robot_viz/launch
+symbolically linking /home/samuel/Roboticaclase/RvizRobot/build/my_robot_viz/urdf/robot.urdf.xml -> /home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/share/my_robot_viz/urdf
+symbolically linking /home/samuel/Roboticaclase/RvizRobot/build/my_robot_viz/urdf/autitorobotica.urdf -> /home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/share/my_robot_viz/urdf
+symbolically linking /home/samuel/Roboticaclase/RvizRobot/build/my_robot_viz/rviz/robot.rviz -> /home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/share/my_robot_viz/rviz
+symbolically linking /home/samuel/Roboticaclase/RvizRobot/build/my_robot_viz/meshes/base_link.STL -> /home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/share/my_robot_viz/meshes
+symbolically linking /home/samuel/Roboticaclase/RvizRobot/build/my_robot_viz/meshes/A.STL -> /home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/share/my_robot_viz/meshes
+symbolically linking /home/samuel/Roboticaclase/RvizRobot/build/my_robot_viz/meshes/B.STL -> /home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/share/my_robot_viz/meshes
+symbolically linking /home/samuel/Roboticaclase/RvizRobot/build/my_robot_viz/config/joint_names_autitorobotica.yaml -> /home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/share/my_robot_viz/config

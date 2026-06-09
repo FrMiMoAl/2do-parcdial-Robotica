@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="autitorobotica">
+  <link name="base_link" />
+  
+  <joint name="base_link_to_chassis" type="fixed">
+    <parent link="base_link" />
+    <child link="chassis_link" />
+    <origin xyz="0.07997 0.968 0.00289" rpy="0 0 -1.5708" />
+  </joint>
+
+  <link
+    name="chassis_link">
+    <inertial>
+      <origin
+        xyz="-0.0798313842300624 0.0275756681083799 0.998760145382003"
+        rpy="0 0 0" />
+      <mass
+        value="0.150728208818651" />
+      <inertia
+        ixx="0.000359632969161981"
+        ixy="-1.31491534012978E-06"
+        ixz="-1.33263057894596E-06"
+        iyy="0.000505024330390442"
+        iyz="9.28780308596565E-07"
+        izz="0.000331133205870069" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_robot_viz/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_robot_viz/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="B">
+    <inertial>
+      <origin
+        xyz="0.00817198618715925 -3.25910288978548E-07 8.32704526998462E-08"
+        rpy="0 0 0" />
+      <mass
+        value="0.0203591144300768" />
+      <inertia
+        ixx="6.0382447247265E-06"
+        ixy="1.3799957889287E-11"
+        ixz="1.4361898977662E-11"
+        iyy="3.48959072554672E-06"
+        iyz="-2.55988965126951E-12"
+        izz="3.48963032767679E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_robot_viz/meshes/B.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.0980392156862745 0.0980392156862745 0.0980392156862745 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_robot_viz/meshes/B.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="B"
+    type="continuous">
+    <origin
+      xyz="0 -0.96749 -0.0028915"
+      rpy="-2.6655 0 0" />
+    <parent
+      link="chassis_link" />
+    <child
+      link="B" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="A">
+    <inertial>
+      <origin
+        xyz="0.00874953696141806 -3.25910288645481E-07 8.32704526998462E-08"
+        rpy="0 0 0" />
+      <mass
+        value="0.0203591144300767" />
+      <inertia
+        ixx="6.03824472472648E-06"
+        ixy="1.3799957892447E-11"
+        ixz="1.43618989709502E-11"
+        iyy="3.48959072554669E-06"
+        iyz="-2.55988965836341E-12"
+        izz="3.48963032767675E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_robot_viz/meshes/A.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.0980392156862745 0.0980392156862745 0.0980392156862745 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_robot_viz/meshes/A.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="A"
+    type="continuous">
+    <origin
+      xyz="-0.15994 -0.96851 -0.0028915"
+      rpy="0.39616 0 -3.1416" />
+    <parent
+      link="chassis_link" />
+    <child
+      link="A" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+</robot>

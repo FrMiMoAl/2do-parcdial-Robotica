@@ -1,0 +1,57 @@
+[0.000000] (-) TimerEvent: {}
+[0.000135] (-) JobUnselected: {'identifier': 'drive_base_msgs'}
+[0.000188] (-) JobUnselected: {'identifier': 'micro_ros_agent'}
+[0.000220] (-) JobUnselected: {'identifier': 'micro_ros_msgs'}
+[0.000248] (-) JobUnselected: {'identifier': 'micro_ros_setup'}
+[0.000279] (my_robot_viz) JobQueued: {'identifier': 'my_robot_viz', 'dependencies': OrderedDict()}
+[0.000881] (my_robot_viz) JobStarted: {'identifier': 'my_robot_viz'}
+[0.099459] (-) TimerEvent: {}
+[0.199689] (-) TimerEvent: {}
+[0.299907] (-) TimerEvent: {}
+[0.401438] (-) TimerEvent: {}
+[0.501666] (-) TimerEvent: {}
+[0.601903] (-) TimerEvent: {}
+[0.702192] (-) TimerEvent: {}
+[0.802502] (-) TimerEvent: {}
+[0.902757] (-) TimerEvent: {}
+[1.003156] (-) TimerEvent: {}
+[1.103470] (-) TimerEvent: {}
+[1.203712] (-) TimerEvent: {}
+[1.303993] (-) TimerEvent: {}
+[1.404274] (-) TimerEvent: {}
+[1.482783] (my_robot_viz) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../build/my_robot_viz', 'build', '--build-base', '/home/samuel/Roboticaclase/RvizRobot/build/my_robot_viz/build', 'install', '--record', '/home/samuel/Roboticaclase/RvizRobot/build/my_robot_viz/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/samuel/Roboticaclase/RvizRobot/my_robot_viz', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'VSCODE_CWD': '/home/samuel', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share', 'USER': 'samuel', 'LC_TIME': 'es_BO.UTF-8', 'VSCODE_NLS_CONFIG': '{"userLocale":"en-us","osLocale":"en-us","resolvedLanguage":"en","defaultMessagesFile":"/usr/share/antigravity/resources/app/out/nls.messages.json","locale":"en-us","availableLanguages":{}}', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'x11', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib:/usr/local/cuda/lib64:/usr/local/cuda/lib64', 'HOME': '/home/samuel', 'CHROME_DESKTOP': 'antigravity.desktop', 'OLDPWD': '/home/samuel/Roboticaclase/RvizRobot', 'DESKTOP_SESSION': 'ubuntu', 'NVM_BIN': '/home/samuel/.nvm/versions/node/v24.13.0/bin', 'NVM_INC': '/home/samuel/.nvm/versions/node/v24.13.0/include/node', 'VSCODE_IPC_HOOK': '/run/user/1000/vscode-61b4d792-1.10-main.sock', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/antigravity.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'PAGER': 'cat', 'LC_MONETARY': 'es_BO.UTF-8', 'MANAGERPID': '4919', 'SYSTEMD_EXEC_PID': '5429', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'ANTIGRAVITY_AGENT': '1', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '6478', 'NVM_DIR': '/home/samuel/.nvm', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'samuel', 'JOURNAL_STREAM': '8:27325', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'samuel', 'TERM': 'dumb', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'FC_FONTATIONS': '1', 'WINDOWPATH': '2', 'ANTIGRAVITY_EDITOR_APP_ROOT': '/usr/share/antigravity/resources/app', 'PATH': '/home/samuel/.local/bin:/home/samuel/.nvm/versions/node/v24.13.0/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/cuda/bin:/usr/local/cuda/bin:/home/samuel/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/samuel/.lmstudio/bin:/home/samuel/.lmstudio/bin:/home/samuel/.lmstudio/bin', 'SESSION_MANAGER': 'local/Samuel:@/tmp/.ICE-unix/5385,unix/Samuel:/tmp/.ICE-unix/5385', 'INVOCATION_ID': '1b6cd338bd1d44358c80d77e8b2615ec', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'es_BO.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'x11', 'DISPLAY': ':1', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'es_BO.UTF-8', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': '', 'SBX_CHROME_API_RQ': '1', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LC_NAME': 'es_BO.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'es_BO.UTF-8', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'GJS_DEBUG_OUTPUT': 'stderr', 'LC_IDENTIFICATION': 'es_BO.UTF-8', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'ANTIGRAVITY_TRAJECTORY_ID': '5caba26a-ff95-4e53-9504-ef1968026de2', 'PWD': '/home/samuel/Roboticaclase/RvizRobot/build/my_robot_viz', 'TURTLEBOT3_MODEL': 'burger', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'VSCODE_CODE_CACHE_PATH': '/home/samuel/.config/Antigravity/CachedData/15487b3041e65228cae24980a3f796c905ef582c', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/home/samuel/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/samuel/Roboticaclase/RvizRobot/build/my_robot_viz/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'LC_NUMERIC': 'es_BO.UTF-8', 'LC_PAPER': 'es_BO.UTF-8', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor', 'VSCODE_PID': '6478'}, 'shell': False}
+[1.504392] (-) TimerEvent: {}
+[1.604602] (-) TimerEvent: {}
+[1.704823] (-) TimerEvent: {}
+[1.805124] (-) TimerEvent: {}
+[1.905501] (-) TimerEvent: {}
+[1.968691] (my_robot_viz) StdoutLine: {'line': b'running egg_info\n'}
+[2.005648] (-) TimerEvent: {}
+[2.008813] (my_robot_viz) StdoutLine: {'line': b'writing ../build/my_robot_viz/my_robot_viz.egg-info/PKG-INFO\n'}
+[2.009157] (my_robot_viz) StdoutLine: {'line': b'writing dependency_links to ../build/my_robot_viz/my_robot_viz.egg-info/dependency_links.txt\n'}
+[2.009335] (my_robot_viz) StdoutLine: {'line': b'writing entry points to ../build/my_robot_viz/my_robot_viz.egg-info/entry_points.txt\n'}
+[2.009736] (my_robot_viz) StdoutLine: {'line': b'writing requirements to ../build/my_robot_viz/my_robot_viz.egg-info/requires.txt\n'}
+[2.009931] (my_robot_viz) StdoutLine: {'line': b'writing top-level names to ../build/my_robot_viz/my_robot_viz.egg-info/top_level.txt\n'}
+[2.090409] (my_robot_viz) StdoutLine: {'line': b"reading manifest file '../build/my_robot_viz/my_robot_viz.egg-info/SOURCES.txt'\n"}
+[2.091400] (my_robot_viz) StdoutLine: {'line': b"writing manifest file '../build/my_robot_viz/my_robot_viz.egg-info/SOURCES.txt'\n"}
+[2.091813] (my_robot_viz) StdoutLine: {'line': b'running build\n'}
+[2.092086] (my_robot_viz) StdoutLine: {'line': b'running build_py\n'}
+[2.092274] (my_robot_viz) StdoutLine: {'line': b'running install\n'}
+[2.101656] (my_robot_viz) StdoutLine: {'line': b'running install_lib\n'}
+[2.105708] (-) TimerEvent: {}
+[2.146584] (my_robot_viz) StdoutLine: {'line': b'running install_data\n'}
+[2.147227] (my_robot_viz) StdoutLine: {'line': b'copying launch/visualize.launch.py -> /home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/share/my_robot_viz/launch\n'}
+[2.147467] (my_robot_viz) StdoutLine: {'line': b'running install_egg_info\n'}
+[2.188464] (my_robot_viz) StdoutLine: {'line': b"removing '/home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/lib/python3.12/site-packages/my_robot_viz-0.0.0-py3.12.egg-info' (and everything under it)\n"}
+[2.188983] (my_robot_viz) StdoutLine: {'line': b'Copying ../build/my_robot_viz/my_robot_viz.egg-info to /home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/lib/python3.12/site-packages/my_robot_viz-0.0.0-py3.12.egg-info\n'}
+[2.189702] (my_robot_viz) StdoutLine: {'line': b'running install_scripts\n'}
+[2.205833] (-) TimerEvent: {}
+[2.306122] (-) TimerEvent: {}
+[2.406389] (-) TimerEvent: {}
+[2.446857] (my_robot_viz) StdoutLine: {'line': b'Installing imu_bridge_node script to /home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/lib/my_robot_viz\n'}
+[2.447635] (my_robot_viz) StdoutLine: {'line': b'Installing odom_node script to /home/samuel/Roboticaclase/RvizRobot/install/my_robot_viz/lib/my_robot_viz\n'}
+[2.448070] (my_robot_viz) StdoutLine: {'line': b"writing list of installed files to '/home/samuel/Roboticaclase/RvizRobot/build/my_robot_viz/install.log'\n"}
+[2.498299] (my_robot_viz) CommandEnded: {'returncode': 0}
+[2.506487] (-) TimerEvent: {}
+[2.511834] (my_robot_viz) JobEnded: {'identifier': 'my_robot_viz', 'rc': 0}
+[2.512928] (-) EventReactorShutdown: {}
