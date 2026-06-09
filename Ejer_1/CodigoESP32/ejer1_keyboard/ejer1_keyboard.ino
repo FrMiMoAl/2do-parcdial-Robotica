@@ -252,8 +252,7 @@ void cmd_vel_callback(const void * msgin) {
   float linear = msg->linear.x;
   float angular = msg->angular.z;
 
-  // 🚨 CORTE RADICAL: Si el comando de entrada es prácticamente cero, 
-  // reseteamos los filtros en el acto para evitar el goteo residual.
+
   if (fabs(linear) < 0.01 && fabs(angular) < 0.01) {
     linear = 0.0;
     angular = 0.0;
@@ -262,14 +261,13 @@ void cmd_vel_callback(const void * msgin) {
     target_rpm_a = 0.0;
     target_rpm_b = 0.0;
   } else {
-    // Si hay comandos de movimiento reales, el filtro opera normalmente
     linear = apply_lowpass_filter(linear, _prev_linear, input_filter_alpha);
     angular = apply_lowpass_filter(angular, _prev_angular, input_filter_alpha);
     _prev_linear = linear;
     _prev_angular = angular;
   }
 
-  // 1. ATENUACIÓN LINEAL
+
   float base_rpm = linear * 40.0;   
   base_rpm = constrain(base_rpm, -25.0, 25.0); 
 
@@ -298,7 +296,7 @@ void cmd_vel_callback(const void * msgin) {
   } else {
     is_going_straight = false;
     
-    // 2. ATENUACIÓN ANGULAR
+
     float turn_rpm = angular * 12.0; 
     turn_rpm = constrain(turn_rpm, -15.0, 15.0); 
     
@@ -306,7 +304,7 @@ void cmd_vel_callback(const void * msgin) {
     rpm_right += turn_rpm;
   }
 
-  // Si los comandos fueron forzados a cero arriba, las RPM deseadas caerán a cero de golpe aquí
+
   target_rpm_a = constrain_change(rpm_left, target_rpm_a, MAX_RPM_CHANGE_PER_CYCLE);
   float rpm_right_balanced = rpm_right / motor_b_balance_factor;
   target_rpm_b = constrain_change(rpm_right_balanced, target_rpm_b, MAX_RPM_CHANGE_PER_CYCLE);
@@ -337,20 +335,18 @@ void control_loop_pid() {
   _prev_rpm_a = current_rpm_a;
   _prev_rpm_b = current_rpm_b;
 
-  // =================================================================
-  // 🚨 BLOQUE DE SEGURIDAD ABSOLUTO: SI LA META ES 0, SE APAGA EN SECO
-  // =================================================================
+
   if (abs(target_rpm_a) < 0.05 && abs(target_rpm_b) < 0.05) {
     target_rpm_a = 0.0;
     target_rpm_b = 0.0;
     pid_motor_a.reset();
     pid_motor_b.reset();
     
-    // Forzar apagado de hardware directo al puente H
+
     motor_a_write(0);
     motor_b_write(0);
     
-    // Publicar ceros para mantener la telemetría limpia
+
     rpm_left_msg.data = 0.0;
     RCSOFTCHECK(rcl_publish(&rpm_left_pub, &rpm_left_msg, NULL));
     rpm_right_msg.data = 0.0;
@@ -358,10 +354,10 @@ void control_loop_pid() {
     imu_yaw_msg.data = current_yaw;
     RCSOFTCHECK(rcl_publish(&imu_yaw_pub, &imu_yaw_msg, NULL));
     
-    return; // ROMPE LA FUNCIÓN AQUÍ. No ejecuta nada de lo que está abajo.
+    return; 
   }
 
-  // --- El resto del código solo corre si el carro realmente debe moverse ---
+
   if (target_rpm_a < 0) current_rpm_a = -current_rpm_a;
   if (target_rpm_b < 0) current_rpm_b = -current_rpm_b;
 
