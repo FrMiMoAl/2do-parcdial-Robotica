@@ -2,8 +2,10 @@
 
 ## Integrantes
 
-* Nombre Apellido
-* Nombre Apellido
+* Franco Morales
+* Joel Sejas
+* Samuel Barrios
+* Samuel Guzman
 
 ---
 
