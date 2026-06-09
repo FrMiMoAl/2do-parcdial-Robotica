@@ -236,13 +236,5 @@ Se logró implementar un robot diferencial físico integrado con ROS 2 mediante 
 
 Las pruebas realizadas demostraron una respuesta estable, bajo error estacionario y un seguimiento adecuado de los comandos enviados desde `/cmd_vel`.
 
----
 
-# Video de Funcionamiento
-
-Agregar aquí el enlace al video solicitado en el examen.
-
-```text
-https://youtube.com/......
-```
 
