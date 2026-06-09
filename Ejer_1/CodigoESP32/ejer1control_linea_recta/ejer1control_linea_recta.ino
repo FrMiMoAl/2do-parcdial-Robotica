@@ -66,18 +66,14 @@ const float input_filter_alpha = 0.6;
 // =====================================================
 // ============ FILTRO CORREGIDO (VALOR INTERMEDIO) ============
 // =====================================================
-// 0.5 = amplifica divergencia
-// 0.2 = muy suave, pierde responsividad
-// 0.35 = BALANCE PERFECTO
+
 const float velocity_filter_alpha = 0.6;
 
 // =====================================================
 // ========== COMPENSACIÓN DE ASIMETRÍA MOTOR ==========
 // =====================================================
-// Si Motor B es ligeramente más rápido, ajustar aquí
-// 1.0 = sin corrección
-// 1.05 = Motor B 5% más lento (reduce su comando)
-const float motor_b_balance_factor = 1.02;  // Ajustar si es necesario
+
+const float motor_b_balance_factor = 1.02;  
 
 // =====================================================
 // PARÁMETROS IMU
@@ -97,9 +93,7 @@ class PIDController {
     float _integral, _prev_error;
 
     // ==================== GANANCIAS AUMENTADAS ====================
-    // Kp: 0.4 → 0.6 (más ganancia proporcional para control mejor)
-    // Ki: 0.08 → 0.10 (más integral)
-    // Kd: 0.15 → 0.15 (mantener amortiguamiento)
+
     PIDController(float kp = 0.6, float ki = 0.10, float kd = 0.15, float dt = 0.02,  
                   float output_min = -1.0, float output_max = 1.0, float integral_limit = 25.0) {
         this->kp = kp;
@@ -303,13 +297,13 @@ void cmd_vel_callback(const void * msgin) {
   target_rpm_a = constrain_change(rpm_left, target_rpm_a, MAX_RPM_CHANGE_PER_CYCLE);
   
   // ==================== APLICAR BALANCE FACTOR A MOTOR B ====================
-  // Si Motor B tiende a ser más rápido, reducir su comando
+
   float rpm_right_balanced = rpm_right / motor_b_balance_factor;
   target_rpm_b = constrain_change(rpm_right_balanced, target_rpm_b, MAX_RPM_CHANGE_PER_CYCLE);
 }
 
 // =====================================================
-// LAZO PID (PRINCIPAL)
+// LAZO PID 
 // =====================================================
 void control_loop_pid() {
   unsigned long now = millis();
@@ -330,7 +324,7 @@ void control_loop_pid() {
   float current_rpm_b = ((float)ticks_b / ENCODER_RESOLUTION) / dt_minutes;
 
   // =====================================================
-  // ✅ FILTRO CON ALPHA BALANCEADO (0.35)
+  // FILTRO CON ALPHA BALANCEADO
   // =====================================================
   current_rpm_a = apply_lowpass_filter(current_rpm_a, _prev_rpm_a, velocity_filter_alpha);
   current_rpm_b = apply_lowpass_filter(current_rpm_b, _prev_rpm_b, velocity_filter_alpha);
@@ -397,14 +391,14 @@ void control_loop_pid() {
     Serial.print(" | Yaw:"); Serial.println(current_yaw, 2);
   }
 
-  // Publicar las RPM actuales en los tópicos
+ 
   rpm_left_msg.data = current_rpm_a;
   RCSOFTCHECK(rcl_publish(&rpm_left_pub, &rpm_left_msg, NULL));
 
   rpm_right_msg.data = current_rpm_b;
   RCSOFTCHECK(rcl_publish(&rpm_right_pub, &rpm_right_msg, NULL));
 
-  // Publicar el yaw del IMU (en grados) para odometría en ROS 2
+
   imu_yaw_msg.data = current_yaw;
   RCSOFTCHECK(rcl_publish(&imu_yaw_pub, &imu_yaw_msg, NULL));
 }
