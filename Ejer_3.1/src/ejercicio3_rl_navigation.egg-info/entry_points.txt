@@ -1,0 +1,4 @@
+[console_scripts]
+evaluate_agent = evaluate_agent:main
+plot_metrics = plot_metrics:main
+train_agent = train_agent:main

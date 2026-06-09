@@ -1,0 +1,50 @@
+\documentclass[conference]{IEEEtran}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{array}
+
+\title{Metodología para Entrenamiento y Test de un Agente de Navegación en ROS 2}
+\author{\IEEEauthorblockN{Grupo de Robótica IMT-342}}
+
+\begin{document}
+\maketitle
+
+\section{Configuración del Entorno}
+El laboratorio se plantea sobre ROS 2 Jazzy, usando un robot móvil diferencial simulado. El entorno recomendado es Gazebo, con visualización en RViz2. El robot utiliza LiDAR 2D en \texttt{/scan}, odometría en \texttt{/odom} y actuación mediante \texttt{/cmd\_vel}.
+
+\section{Definición del Agente}
+El agente recibe lecturas LiDAR reducidas, distancia a la meta, ángulo relativo, velocidad lineal, velocidad angular y distancia mínima a obstáculos. Las acciones son \texttt{linear.x} en $[0.0,0.35]$ m/s y \texttt{angular.z} en $[-1.0,1.0]$ rad/s. Se recomienda PPO.
+
+\[
+r_t = 2.0(d_{t-1}-d_t)+0.5\cos(\theta_{goal})+0.1v_x-0.05|w_z|-0.01-P_c+R_g
+\]
+
+donde $P_c=100$ ante colisión y $R_g=100$ al alcanzar la meta.
+
+\section{Entrenamiento en Simulación}
+El entrenamiento se realiza exclusivamente en simulación mediante episodios con metas aleatorias. Se registra estado, acción, recompensa y condición terminal. Se usa semilla fija 42, máximo 1000 episodios, 500 pasos, evaluación cada 25 episodios y parada temprana tras 10 evaluaciones sin mejora.
+
+\section{Evaluación y Pruebas}
+La evaluación se realiza con el agente entrenado usando política determinista. Se ejecutan entre 20 y 30 episodios con metas fijas y aleatorias, registrando éxito, colisión, recompensa acumulada, pasos, tiempo y distancia final.
+
+\section{Métricas de Validación}
+\begin{table}[h]
+\centering
+\begin{tabular}{|p{2.2cm}|p{2.6cm}|p{2.2cm}|}
+\hline
+Métrica & Descripción & Criterio \\
+\hline
+Recompensa & Suma por episodio & Creciente \\
+Éxito & Metas alcanzadas & $\geq 80\%$ \\
+Colisión & Episodios con choque & $\leq 10\%$ \\
+Tiempo & Duración media & Decreciente \\
+Distancia final & Error a la meta & $<0.30$m \\
+Pasos & Acciones ejecutadas & Decreciente \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Conclusión}
+La metodología permite entrenar y evaluar un agente de navegación en ROS 2 Jazzy usando LiDAR, odometría y comandos \texttt{/cmd\_vel}. La recompensa integra avance, orientación, seguridad y eficiencia.
+
+\end{document}

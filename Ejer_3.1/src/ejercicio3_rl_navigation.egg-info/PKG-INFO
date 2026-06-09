@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: ejercicio3-rl-navigation
+Version: 0.0.1
+Summary: Pipeline mock de navegacion con Reinforcement Learning para ROS 2 Jazzy.
+Maintainer: franco
+Maintainer-email: franco@example.com
+License: MIT
