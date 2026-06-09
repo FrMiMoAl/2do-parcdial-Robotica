@@ -127,25 +127,44 @@ colcon build --symlink-install
 
 # Ejecución del Sistema
 
-En cada terminal ejecutar previamente:
+## Requisitos previos en cada terminal
 
 ```bash
 source /opt/ros/jazzy/setup.bash
-source ~/Roboticaclase/RvizRobot/install/setup.bash
+source install/setup.bash
 export ROS_DOMAIN_ID=69
 ```
 
 ---
 
-## Terminal 1 - micro-ROS Agent
+## ⚡ Opción A — Launch Unificado (Docker + RViz en un solo comando)
+
+Este launch levanta automáticamente el agente micro-ROS dentro de un contenedor Docker **y** todos los nodos de visualización en RViz:
 
 ```bash
-ros2 run micro_ros_agent micro_ros_agent udp4 --port 8888
+ros2 launch launch/robot_full.launch.py
+```
+
+Espera ~3 segundos y RViz se abrirá mostrando el robot. Asegúrate de tener Docker instalado y con la imagen disponible:
+
+```bash
+docker pull microros/micro-ros-agent:jazzy
 ```
 
 ---
 
-## Terminal 2 - Lanzar Nodos y RViz
+## 🔧 Opción B — Dos Terminales por Separado
+
+### Terminal 1 - micro-ROS Agent (Docker)
+
+```bash
+docker run --rm --network host \
+  -e ROS_DOMAIN_ID=69 \
+  microros/micro-ros-agent:jazzy \
+  udp4 --port 8888
+```
+
+### Terminal 2 - Lanzar Nodos y RViz
 
 ```bash
 ros2 launch my_robot_viz visualize.launch.py
@@ -155,7 +174,7 @@ RViz se abrirá automáticamente mostrando el robot y la información publicada 
 
 ---
 
-## Terminal 3 - Control del Robot
+## Terminal de Control - Control del Robot
 
 ### Avanzar
 
@@ -185,7 +204,7 @@ ros2 topic pub /cmd_vel geometry_msgs/msg/Twist \
 Si RViz no inicia automáticamente:
 
 ```bash
-rviz2 -d ~/Roboticaclase/RvizRobot/my_robot_viz/rviz/robot.rviz
+rviz2 -d ~/Roboticaclase/robotica2parcial/2do-parcdial-Robotica/Ejer_1/my_robot_viz/rviz/robot.rviz
 ```
 
 ---
